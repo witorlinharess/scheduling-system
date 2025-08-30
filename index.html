@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Agendamento</title>
+    <!-- Referência ao Tailwind CSS e ao arquivo de estilização -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <div class="min-h-screen flex flex-col items-center justify-center p-4">
+        <h1 class="text-4xl font-extrabold text-white mb-8">Clínica de Estética</h1>
+        <p class="text-xl text-gray-400 mb-12">Agende seu horário conosco</p>
+
+        <!-- Formulário de Agendamento -->
+        <div id="scheduler" class="w-full max-w-xl bg-gray-800 p-8 rounded-lg shadow-xl mb-8">
+            <h2 class="text-2xl font-semibold text-white mb-6">Fazer Agendamento</h2>
+            <form id="scheduleForm" class="space-y-4">
+                <div>
+                    <label for="clientName" class="block text-sm font-medium text-gray-400">Nome Completo</label>
+                    <input type="text" id="clientName" name="clientName" required
+                           class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="service" class="block text-sm font-medium text-gray-400">Serviço</label>
+                    <select id="service" name="service" required
+                            class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">Selecione um serviço</option>
+                        <option value="Limpeza de Pele">Limpeza de Pele</option>
+                        <option value="Massagem Facial">Massagem Facial</option>
+                        <option value="Depilação a Laser">Depilação a Laser</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="date" class="block text-sm font-medium text-gray-400">Data</label>
+                    <input type="date" id="date" name="date" required
+                           class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="time" class="block text-sm font-medium text-gray-400">Hora</label>
+                    <input type="time" id="time" name="time" required
+                           class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <button type="submit"
+                        class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition">
+                    Agendar
+                </button>
+            </form>
+        </div>
+
+        <!-- Lista de Agendamentos -->
+        <div id="appointmentsList" class="w-full max-w-xl bg-gray-800 p-8 rounded-lg shadow-xl">
+            <h2 class="text-2xl font-semibold text-white mb-6">Próximos Agendamentos</h2>
+            <ul id="appointments" class="space-y-4">
+                <!-- Os agendamentos serão injetados aqui via JavaScript -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal para mensagens -->
+    <div id="messageModal" class="modal">
+        <div class="modal-content text-center">
+            <p id="modalMessage" class="text-lg font-semibold text-white"></p>
+            <button id="closeModalBtn" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition">Fechar</button>
+        </div>
+    </div>
+
+    <!-- Referência ao arquivo de JavaScript -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
