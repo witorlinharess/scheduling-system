@@ -18,10 +18,11 @@ body {
     align-items: center;
 }
 .modal-content {
-    background-color: #0d0d0d;
+    background-color: #ffffff;
     padding: 24px;
     border-radius: 8px;
     width: 90%;
     max-width: 500px;
     position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

@@ -3,46 +3,51 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clínica de estética</title>
+    <title>Clínica de Estética</title>
     <!-- Referência ao Tailwind CSS e ao arquivo de estilização -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/style/style.css">
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-    <div class="min-h-screen flex flex-col items-center justify-center p-4">
-        <h1 class="text-4xl font-extrabold text-purple-800 mb-8">Clínica de Estética</h1>
-        <p class="text-xl text-gray-600 mb-12">Agende seu horário conosco</p>
+    <main class="w-full max-w-2xl mx-auto p-6">
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-extrabold text-purple-800">Clínica de Estética</h1>
+            <p class="text-xl text-gray-600 mt-2">Agende seu horário conosco</p>
+        </div>
 
-        <!-- Formulário de Agendamento -->
-        <div id="scheduler" class="w-full max-w-xl bg-white p-8 rounded-lg shadow-xl mb-8">
+        <div class="bg-white p-8 rounded-lg shadow-xl mb-8">
             <h2 class="text-2xl font-semibold text-purple-700 mb-6">Fazer Agendamento</h2>
+            
             <form id="scheduleForm" class="space-y-4">
                 <div>
                     <label for="clientName" class="block text-sm font-medium text-gray-600">Nome Completo</label>
                     <input type="text" id="clientName" name="clientName" required
                            class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-purple-300 rounded-md text-gray-800 focus:outline-none focus:ring-purple-500 focus:border-purple-500">
                 </div>
+                
                 <div>
                     <label for="service" class="block text-sm font-medium text-gray-600">Serviço</label>
                     <select id="service" name="service" required
                             class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-purple-300 rounded-md text-gray-800 focus:outline-none focus:ring-purple-500 focus:border-purple-500">
-                        <option value="">Selecione um serviço</option>
                         <option value="Limpeza de Pele">Limpeza de Pele</option>
                         <option value="Massagem Facial">Massagem Facial</option>
                         <option value="Depilação a Laser">Depilação a Laser</option>
                     </select>
                 </div>
+                
                 <div>
                     <label for="date" class="block text-sm font-medium text-gray-600">Data</label>
                     <input type="date" id="date" name="date" required
                            class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-purple-300 rounded-md text-gray-800 focus:outline-none focus:ring-purple-500 focus:border-purple-500">
                 </div>
+                
                 <div>
                     <label for="time" class="block text-sm font-medium text-gray-600">Hora</label>
                     <input type="time" id="time" name="time" required
                            class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-purple-300 rounded-md text-gray-800 focus:outline-none focus:ring-purple-500 focus:border-purple-500">
                 </div>
+                
                 <button type="submit"
                         class="w-full bg-purple-600 text-white font-bold py-2 px-4 rounded-md hover:bg-purple-700 transition">
                     Agendar
@@ -50,23 +55,21 @@
             </form>
         </div>
 
-        <!-- Lista de Agendamentos -->
-        <div id="appointmentsList" class="w-full max-w-xl bg-white p-8 rounded-lg shadow-xl">
+        <div class="bg-white p-8 rounded-lg shadow-xl">
             <h2 class="text-2xl font-semibold text-purple-700 mb-6">Próximos Agendamentos</h2>
             <ul id="appointments" class="space-y-4">
-                <!-- Os agendamentos serão injetados aqui via JavaScript -->
+                <!-- A lista de agendamentos será renderizada aqui pelo JavaScript -->
             </ul>
         </div>
-    </div>
+    </main>
 
-    <!-- Modal para mensagens -->
+    <!-- Modal de Mensagem -->
     <div id="messageModal" class="modal">
-        <div class="modal-content text-center">
-            <p id="modalMessage" class="text-lg font-semibold text-white"></p>
-            <button id="closeModalBtn" class="mt-4 bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700 transition">Fechar</button>
+        <div class="modal-content rounded-lg shadow-2xl">
+            <span id="closeModalBtn" class="close-btn text-gray-500 text-2xl font-semibold absolute top-4 right-6 cursor-pointer hover:text-gray-700">&times;</span>
+            <p id="modalMessage" class="text-lg font-semibold text-center"></p>
         </div>
     </div>
-
 
     <!-- Referência ao arquivo de JavaScript -->
     <script type="module" src="/script/script.js"></script>
